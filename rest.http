@@ -1,1 +1,1 @@
-GET http://localhost:8080/consulta-cep/01536000
+GET http://localhost:8081/consulta-cep/01536000
