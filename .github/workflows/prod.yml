@@ -1,8 +1,7 @@
 name: Deploy App Cep no Aws
 on:
   push:
-    branches:
-      - [main]
+    branches: [main]
 
 jobs:
   build:
