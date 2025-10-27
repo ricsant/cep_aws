@@ -1,14 +1,10 @@
 # Usa uma imagem base com Java 21
 FROM openjdk:21-jdk
 
-# Copiando da raiz do projeto para a raiz do docker
-COPY . .
+WORKDIR /app
 
-# Ensure mvnw is executable
-RUN chmod +x mvnw
+COPY target/cep-0.0.1-SNAPSHOT.jar cep-0.0.1-SNAPSHOT.jar
 
-# Rodar o maven para gerar imagem
-RUN ./mvnw clean install
+EXPOSE 8080
 
-# Define o ponto de entrada
-ENTRYPOINT ["java", "-jar", "target/cep-0.0.1-SNAPSHOT.jar"]
+CMD ["java","-jar","cep-0.0.1-SNAPSHOT.jar"]

@@ -8,6 +8,27 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v5
+
+      - name: setup java
+        uses: actions/setup-java@v5
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+
+      - name: build project
+        run: mvn clean install -DskipTests
+
+      - name: login docker hub
+        run: docker login -u ${{DOCKER_USERNAME}} -p ${{DOCKER_PASSWORD}}
+
+      - name: build docker image
+        run: docker build -t ricsant03/cep .
+
+      - name: push image docker
+        run: docker push ricsant03/cep
+
+
+
 
 
