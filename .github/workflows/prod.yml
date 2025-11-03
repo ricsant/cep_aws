@@ -28,6 +28,16 @@ jobs:
       - name: push image docker
         run: docker push ricsant03/cep
 
+deploy:
+  needs: build
+  runs-on: self-hosted
+  steps:
+    - name: pull image from docker hub
+      run: docker pull ricsant03/cep:latest
+
+    - name: run docker container
+      run: docker run -d -p 8080:8080 --name cep-aws ricsant03/cep
+
 
 
 
