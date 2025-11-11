@@ -1,1 +1,10 @@
+### local
 GET http://localhost:8081/consulta-cep/01536000
+### docker
+GET http://localhost:8080/consulta-cep/01536000
+### aws
+GET http://54.234.167.232:8081/consulta-cep/01536000
+### curl aws
+# curl "http://localhost:8080/consulta-cep/01536000"
+### rodar a aplicação de dentro do docker
+# docker exec e63 curl "http://127.0.0.1:8081/consulta-cep/01536000"
