@@ -34,7 +34,8 @@ jobs:
     steps:
       - name: pull image from docker hub
         run: docker pull ricsant03/cep:latest
-
+      - name: remove docker container
+        run: docker rm -f cep-aws
       - name: run docker container
         run: docker run -d -p 8080:8080 --name cep-aws ricsant03/cep
 
