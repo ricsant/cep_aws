@@ -1,5 +1,5 @@
 # Usa uma imagem base com Java 21
-FROM openjdk:21-jdk
+FROM eclipse-temurin:21-jdk
 
 WORKDIR /app
 
